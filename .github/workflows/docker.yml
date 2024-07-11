@@ -16,7 +16,7 @@ jobs:
         runtime:
           - name: gtk-4.12
             gtktag: 4.12.4
-            adwtag: 1.3.6
+            adwtag: 1.5.0
       fail-fast: false
 
     steps:
