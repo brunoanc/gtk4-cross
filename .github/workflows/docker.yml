@@ -15,7 +15,7 @@ jobs:
       matrix:
         runtime:
           - name: gtk-4.12
-            gtktag: 4.12.5
+            gtktag: 4.12.4
             adwtag: 1.5.2
       fail-fast: false
 
