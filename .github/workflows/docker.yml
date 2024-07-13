@@ -14,6 +14,9 @@ jobs:
     strategy:
       matrix:
         runtime:
+          - name: gtk-4.12
+            gtktag: 4.12.5
+            adwtag: 1.5.2
           - name: gtk-4.14
             gtktag: 4.14.4
             adwtag: 1.5.2
