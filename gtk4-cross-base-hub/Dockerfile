@@ -20,7 +20,7 @@ RUN . ~/.cargo/env && cargo install --git https://github.com/MGlolenstine/peldd_
 FROM fedora:40
 COPY --from=0 /root/pe-util/build/peldd /usr/bin/peldd
 COPY --from=1 /root/.cargo/bin/peldd_dependency_scanner /usr/bin/pds
-RUN dnf install git mingw64-binutils mingw64-gcc mingw64-gcc-c++ meson mingw64-pango mingw64-gdk-pixbuf mingw64-libepoxy mingw64-winpthreads-static glib2-devel gobject-introspection-devel mingw64-gstreamer1-plugins-bad-free vala wine cmake gcc zip boost boost-system dos2unix sassc mingw64-librsvg2 intltool itstool gtk-update-icon-cache adwaita-icon-theme mingw64-adwaita-icon-theme mingw64-gettext mingw64-libyaml mingw64-xz mingw64-xz-libs mingw64-zstd gperf mingw64-vulkan-loader glslc appstream-devel -y && dnf clean all -y
+RUN dnf install git mingw64-binutils mingw64-gcc mingw64-gcc-c++ meson mingw64-pango mingw64-gdk-pixbuf mingw64-libepoxy mingw64-winpthreads-static glib2-devel gobject-introspection-devel mingw64-gstreamer1-plugins-bad-free vala wine cmake gcc zip boost boost-system dos2unix sassc mingw64-librsvg2 intltool itstool gtk-update-icon-cache adwaita-icon-theme mingw64-adwaita-icon-theme mingw64-gettext mingw64-libyaml mingw64-xz mingw64-xz-libs mingw64-zstd gperf mingw64-vulkan-loader glslc appstream-devel docbook-style-xsl -y && dnf clean all -y
 
 # Clone the gtk4 repository (Move after the mingw setup for efficiency later)
 WORKDIR /tmp
@@ -80,7 +80,6 @@ RUN ninja all && ninja install
 # Build and install libadwaita
 WORKDIR /tmp/libadwaita
 RUN sed -i 's/revision = main/revision = v1.0.2/g' subprojects/appstream.wrap
-RUN sed -i 's/apidocs=false/docs=false/g' src/meson.build && cat src/meson.build
 RUN x86_64-meson -Dintrospection=disabled -Dexamples=false -Dvapi=false build --wrap-mode=default
 WORKDIR /tmp/libadwaita/build
 RUN meson configure -Db_lto=false -Dc_link_args="['-lssp']"
