@@ -1,4 +1,4 @@
-FROM brunoanc/gtk4-cross:%GTKTAG%
+FROM powerball253/gtk4-cross:%GTKTAG%
 
 # Add build.sh
 ADD build.sh /usr/bin/build
