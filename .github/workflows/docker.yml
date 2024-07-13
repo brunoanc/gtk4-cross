@@ -42,7 +42,7 @@ jobs:
         with:
           images: |
             powerball253/gtk4-cross
-            ghcr.io/powerball253/gtk4-cross
+            ghcr.io/brunoanc/gtk4-cross
           tags: |
             ${{ matrix.runtime.name }}
       - name: Write the Dockerfile for the ${{ matrix.runtime.name }} runtime
@@ -64,7 +64,7 @@ jobs:
         with:
           images: |
             powerball253/gtk4-cross
-            ghcr.io/powerball253/gtk4-cross
+            ghcr.io/brunoanc/gtk4-cross
           tags: |
             rust-${{ matrix.runtime.name }}
       - name: Write the Dockerfile for the ${{ matrix.runtime.name }} runtime
