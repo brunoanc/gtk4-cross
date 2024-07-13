@@ -83,6 +83,7 @@ RUN sed -i 's/revision = main/revision = v1.0.2/g' subprojects/appstream.wrap
 RUN x86_64-meson -Dintrospection=disabled -Dexamples=false -Dvapi=false build --wrap-mode=default
 WORKDIR /tmp/libadwaita/build
 RUN meson configure -Db_lto=false -Dc_link_args="['-lssp']"
+RUN sed -i '21,42 s/^/#/' ../subprojects/appstream/data/meson.build
 RUN ninja all && ninja install
 
 # Return to the current working directory
